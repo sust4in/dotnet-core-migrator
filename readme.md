@@ -12,22 +12,20 @@ public class MyMigration: Migration, IMigration {
 
     public void Execute()
     {
-        db.Table("users")
+        migrator.Table("users");
 
-            .Column(new VarChar("email", 100))
-            .IsUnique()
-            .IsNotNull()
-            .Add()
+        migrator.AddColumn(new VarChar("email", 100))
+            .SetUnique()
+            .SetNotNull();
 
-            .Column(new VarChar("nickname", 100))
-            .IsUnique()
-            .IsNotNull()
-            .Add()
+        migrator.AddColumn(new VarChar("nickname", 100))
+            .SetUnique()
+            .SetNotNull();
 
-            .Column(new VarChar("name", 100))
-            .Add()
+        migrator.AddColumn(new VarChar("name", 100))
+            .Add(),
 
-            .Create();
+        migrator.Create();
     }
 
 } 
@@ -36,7 +34,7 @@ public class MyMigration: Migration, IMigration {
 Then, you should run all migrations. Thats all!
 
 ```csharp
-IAdaptor adaptor = DatabaseAdaptor.Get(DatabaseAdaptor.MYSQL, "my_connection_string");
+IAdaptor adaptor = new MySQLAdaptor("my_connection_string");
 Migrator migrator = new Migrator(adaptor);
 migrator.SetMigrationList(new List<IMigration>() {
     new MyMigration()
