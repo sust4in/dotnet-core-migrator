@@ -49,5 +49,11 @@ namespace Ozziest
             return columns.Find(i => i.Name() == name);
         }
 
+        public void Create()
+        {
+            string sql = adaptor.Generator().Create(_table, columns);
+            adaptor.Create(sql);
+        }
+
     }
 }

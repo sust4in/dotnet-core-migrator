@@ -8,6 +8,7 @@ namespace Ozziest.Columns
         {
             _name = name;
             _length = length;
+            _type = "VARCHAR";
         }
 
     }

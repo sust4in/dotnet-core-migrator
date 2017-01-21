@@ -1,32 +1,41 @@
 using System.Collections.Generic;
+using Ozziest.Adaptors;
 using Ozziest.Generators;
 
-namespace Ozziest.Adaptors
+namespace Ozziest.UnitTests.Mocks
 {
-    public class MySQLAdaptor: IAdaptor
+
+    public class MockAdaptor: IAdaptor
     {
 
         private string _connectionString;
+        private string lastSQL;
+
         private IGenerator _generator = new MySQLGenerator();
 
-        public MySQLAdaptor(string connectionString)
+        public MockAdaptor(string connectionString)
         {
             this._connectionString = connectionString;
         }
 
         public long Create (string sql)
         {
-            return -1;
+            lastSQL = sql;
+            return 1;
         }
 
         public void Execute(string sql)
         {
-            
         }
 
         public List<dynamic> Get(string sql)
         {
             return new List<dynamic>();
+        }
+
+        public string GetLastSQL()
+        {
+            return lastSQL;
         }
 
         public IGenerator Generator()
@@ -35,5 +44,5 @@ namespace Ozziest.Adaptors
         }
 
     }
-    
+
 }

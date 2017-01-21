@@ -1,20 +1,24 @@
 using System;
-using Ozziest;
-using Ozziest.Adaptors;
 using Ozziest.Columns;
+using Ozziest.UnitTests.Mocks;
 using Xunit;
 
 namespace Ozziest.UnitTests
 {
     public class MigratorTest
     {
-        private Migrator migrator = new Migrator(new MySQLAdaptor("my_connection_string"));
+        private MockAdaptor adaptor = new MockAdaptor("my_connection_string");
+        private Migrator migrator;
+
+        public MigratorTest() 
+        {
+            migrator = new Migrator(adaptor);
+        }
 
         [Fact]
         public void TestSettingAdaptor()
         {
-            Assert.IsType<MySQLAdaptor>(migrator.Adaptor());
-            migrator.Table("users");
+            Assert.IsType<MockAdaptor>(migrator.Adaptor());
         }
 
         [Fact]
@@ -27,10 +31,12 @@ namespace Ozziest.UnitTests
         [Fact]
         public void TestColumnAdd()
         {
+            migrator.Table("users");
+ 
             IColumn column = migrator.AddColumn(new VarChar("email", 100))
                 .SetUnique()
                 .SetNotNull();
-                
+
             Assert.Equal(column.Name(), "email");
             Assert.Equal(column.Length(), 100);
             Assert.Equal(column.IsUnique(), true);
@@ -39,6 +45,12 @@ namespace Ozziest.UnitTests
 
             column = migrator.GetColumnByName("email");
             Assert.Equal(column.IsNullable(), false);
+
+            migrator.Create();
+            Assert.Equal(
+                    "CREATE TABLE `users` (`email` VARCHAR(100) NOT NULL UNIQUE)", 
+                    adaptor.GetLastSQL()
+                );
         }
         
     }

@@ -5,6 +5,7 @@ namespace Ozziest.Columns
     {
 
         protected string _name;
+        protected string _type;
         protected int _length;
 
         protected bool isUnique = false;
@@ -31,6 +32,11 @@ namespace Ozziest.Columns
         public virtual string Name()
         {
             return _name;
+        }
+
+        public virtual string Type()
+        {
+            return _type;
         }
 
         public virtual int Length()

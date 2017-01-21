@@ -12,6 +12,8 @@ namespace Ozziest.Columns
 
         string Name();
 
+        string Type();
+
         int Length();
 
         bool IsNullable();

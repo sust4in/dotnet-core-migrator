@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Ozziest.Generators;
 
 namespace Ozziest.Adaptors
 {
@@ -10,6 +11,8 @@ namespace Ozziest.Adaptors
         void Execute(string sql);
 
         List<dynamic> Get(string sql);
+
+        IGenerator Generator();
 
     }
     
