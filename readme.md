@@ -36,7 +36,8 @@ public class MyMigration: Migration, IMigration {
 Then, you should run all migrations. Thats all!
 
 ```csharp
-Migrator migrator = new Migrator(Migrator.MYSQL, "my_connection_string");
+IAdaptor adaptor = DatabaseAdaptor.Get(DatabaseAdaptor.MYSQL, "my_connection_string");
+Migrator migrator = new Migrator(adaptor);
 migrator.SetMigrationList(new List<IMigration>() {
     new MyMigration()
 });
