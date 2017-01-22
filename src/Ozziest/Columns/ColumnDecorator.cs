@@ -8,6 +8,10 @@ namespace Ozziest.Columns
         protected string _type;
         protected int _length;
 
+        protected bool isPrimaryKey = false;
+
+        protected bool isAutoIncrement = false;
+
         protected bool isUnique = false;
         protected bool isNullable = true;
 
@@ -28,6 +32,18 @@ namespace Ozziest.Columns
             isNullable = true;
             return this;
         }
+
+        public virtual IColumn SetPrimaryKey()
+        {
+            isPrimaryKey = true;
+            return this;
+        }
+
+        public virtual IColumn SetAutoIncrement()
+        {
+            isAutoIncrement = true;
+            return this;
+        }        
 
         public virtual string Name()
         {
@@ -53,6 +69,17 @@ namespace Ozziest.Columns
         {
             return isUnique;
         }
+
+        public virtual bool IsPrimaryKey()
+        {
+            return isPrimaryKey;
+        }
+
+        public virtual bool IsAutoIncrement()
+        {
+            return isAutoIncrement;
+        }
+        
         
     }
 

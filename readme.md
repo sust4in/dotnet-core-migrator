@@ -7,12 +7,17 @@ Because we can do it!
 First, you should write a migration;
 
 ```csharp
-
 public class MyMigration: Migration, IMigration {
 
     public void Execute()
     {
         migrator.Table("users");
+
+        migrator.AddColumn(new Int("id"))
+            .SetPrimaryKey()
+            .SetAutoIncrement()
+            .SetUnique()
+            .SetNotNull();        
 
         migrator.AddColumn(new VarChar("email", 100))
             .SetUnique()
@@ -23,7 +28,7 @@ public class MyMigration: Migration, IMigration {
             .SetNotNull();
 
         migrator.AddColumn(new VarChar("name", 100))
-            .Add(),
+            .Add();
 
         migrator.Create();
     }

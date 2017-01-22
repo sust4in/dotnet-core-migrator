@@ -52,6 +52,14 @@ namespace Ozziest.UnitTests
                     adaptor.GetLastSQL()
                 );
         }
+
+        [Fact]
+        public void TestAutoIncrementException()
+        {
+            IColumn column = migrator.AddColumn(new VarChar("email", 100));
+            Assert.Throws<Exception>(() => column.SetAutoIncrement());
+        }
         
     }
+    
 }

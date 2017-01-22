@@ -6,6 +6,10 @@ namespace Ozziest.Columns
 
         IColumn SetUnique();
 
+        IColumn SetPrimaryKey();
+
+        IColumn SetAutoIncrement();
+
         IColumn SetNotNull();
 
         IColumn SetNull();
@@ -19,6 +23,10 @@ namespace Ozziest.Columns
         bool IsNullable();
 
         bool IsUnique();
+
+        bool IsPrimaryKey();
+
+        bool IsAutoIncrement();
 
     }
 

@@ -1,3 +1,5 @@
+using System;
+
 namespace Ozziest.Columns 
 {
 
@@ -9,6 +11,11 @@ namespace Ozziest.Columns
             _name = name;
             _length = length;
             _type = "VARCHAR";
+        }
+
+        public override IColumn SetAutoIncrement()
+        {
+            throw new Exception("VarChar field can not be set as auto increment field.");
         }
 
     }
