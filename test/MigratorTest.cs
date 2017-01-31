@@ -46,9 +46,11 @@ namespace Ozziest.UnitTests
             column = migrator.GetColumnByName("email");
             Assert.Equal(column.IsNullable(), false);
 
+            IColumn userTypeId = migrator.AddColumn(new Int("user_type_id"));
+
             migrator.Create();
             Assert.Equal(
-                    "CREATE TABLE `users` (`email` VARCHAR(100) NOT NULL UNIQUE)", 
+                    "CREATE TABLE `users` (`email` VARCHAR(100) NOT NULL UNIQUE, `user_type_id` INT)", 
                     adaptor.GetLastSQL()
                 );
         }
