@@ -26,9 +26,34 @@ namespace Ozziest.Generators
             {
                 case "VARCHAR":
                     return VarChar(column);
+                case "INT":
+                    return Int(column);
                 default:
                     throw new Exception("Column type not found: " + column.Type());
             }
+        }
+
+        public string Int(IColumn column)
+        {
+            string sql = "`{0}` INT";
+            sql = string.Format(sql, column.Name(), column.Length());
+
+            if (column.IsNullable() == false)
+            {
+                sql += " NOT NULL";
+            }
+
+            if (column.IsUnique())
+            {
+                sql += " UNIQUE";
+            }
+
+            if (column.IsAutoIncrement())
+            {
+                sql += " AUTO_INCREMENT";
+            }
+
+            return sql;
         }
 
         public string VarChar(IColumn column)

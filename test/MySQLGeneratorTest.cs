@@ -22,6 +22,16 @@ namespace Ozziest.UnitTests
             column.SetUnique();
             Assert.Equal("`nickname` VARCHAR(50) NOT NULL UNIQUE", generator.VarChar(column));
         }
-        
+
+        [Fact]
+        public void TestInt()
+        {
+            // Simple varchar
+            IColumn column = new Int("user_id");
+            column.SetNotNull();
+            column.SetAutoIncrement();
+            Assert.Equal("`user_id` INT NOT NULL AUTO_INCREMENT", generator.Int(column));
+        }
+
     }
 }
