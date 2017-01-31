@@ -11,6 +11,10 @@ namespace Ozziest.Generators
 
         string ToSQL(IColumn column);
 
+        string Int(IColumn column);
+
+        string Bit(IColumn column);
+
         string VarChar(IColumn column);
 
     }
