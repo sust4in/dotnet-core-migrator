@@ -1,6 +1,7 @@
 using Xunit;
 using Ozziest.Generators;
 using Ozziest.Columns;
+using System;
 
 namespace Ozziest.UnitTests
 {
@@ -31,6 +32,38 @@ namespace Ozziest.UnitTests
             column.SetNotNull();
             column.SetAutoIncrement();
             Assert.Equal("`user_id` INT NOT NULL AUTO_INCREMENT", generator.Int(column));
+        }
+
+        [Fact]
+        public void TestBit()
+        {
+            // Simple varchar
+            IColumn column = new Bit("is_online");
+            Assert.Equal("`is_online` BIT(1)", generator.Bit(column));
+        }
+
+        [Fact]
+        public void TestBitExceptionAutoIncrement()
+        {
+            // Simple varchar
+            IColumn column = new Bit("is_online");
+            Assert.Throws<Exception>(() => column.SetAutoIncrement());
+        }
+
+        [Fact]
+        public void TestBitExceptionUnique()
+        {
+            // Simple varchar
+            IColumn column = new Bit("is_online");
+            Assert.Throws<Exception>(() => column.SetUnique());
+        }
+
+        [Fact]
+        public void TestBitExceptionPrimaryKey()
+        {
+            // Simple varchar
+            IColumn column = new Bit("is_online");
+            Assert.Throws<Exception>(() => column.SetPrimaryKey());
         }
 
     }

@@ -56,6 +56,19 @@ namespace Ozziest.Generators
             return sql;
         }
 
+        public string Bit(IColumn column)
+        {
+            string sql = "`{0}` BIT(1)";
+            sql = string.Format(sql, column.Name(), column.Length());
+
+            if (column.IsNullable() == false)
+            {
+                sql += " NOT NULL";
+            }
+
+            return sql;
+        }
+
         public string VarChar(IColumn column)
         {
             string sql = "`{0}` VARCHAR({1})";
