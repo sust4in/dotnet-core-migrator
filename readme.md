@@ -27,8 +27,7 @@ public class MyMigration: Migration, IMigration {
             .SetUnique()
             .SetNotNull();
 
-        migrator.AddColumn(new VarChar("name", 100))
-            .Add();
+        migrator.AddColumn(new VarChar("name", 100));
 
         migrator.Create();
     }
