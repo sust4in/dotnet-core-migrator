@@ -1,12 +1,15 @@
 using Ozziest.Columns;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace Ozziest.Generators 
+namespace Ozziest.Generators
 {
 
-    public class MySQLGenerator: IGenerator 
+    public class MySQLGenerator : IGenerator
     {
+
+        StringBuilder sb = null;
 
         public string Create(string table, List<IColumn> columns)
         {
@@ -28,6 +31,10 @@ namespace Ozziest.Generators
                     return VarChar(column);
                 case "INT":
                     return Int(column);
+                case "TINYINT":
+                    return TinyInt(column);
+                case "SMALLINT":
+                    return SmallInt(column);
                 default:
                     throw new Exception("Column type not found: " + column.Type());
             }
@@ -85,6 +92,52 @@ namespace Ozziest.Generators
             }
 
             return sql;
+        }
+
+        public string TinyInt(IColumn column)
+        {
+            sb = new StringBuilder();
+            sb.AppendFormat("`{0}` TINYINT({1})", column.Name(), column.Length());
+
+            if (column.IsNullable() == false)
+            {
+                sb.Append(" NOT NULL");
+            }
+
+            if (column.IsUnique())
+            {
+                sb.Append(" UNIQUE");
+            }
+
+            if (column.IsAutoIncrement())
+            {
+                sb.Append(" AUTO_INCREMENT");
+            }
+
+            return sb.ToString();
+        }
+
+        public string SmallInt(IColumn column)
+        {
+            sb = new StringBuilder();
+            sb.AppendFormat("`{0}` SMALLINT({1})", column.Name(), column.Length());
+
+            if (column.IsNullable() == false)
+            {
+                sb.Append(" NOT NULL");
+            }
+
+            if (column.IsUnique())
+            {
+                sb.Append(" UNIQUE");
+            }
+
+            if (column.IsAutoIncrement())
+            {
+                sb.Append(" AUTO_INCREMENT");
+            }
+
+            return sb.ToString();
         }
 
     }

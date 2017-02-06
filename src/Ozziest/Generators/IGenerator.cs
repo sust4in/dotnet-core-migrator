@@ -17,6 +17,8 @@ namespace Ozziest.Generators
 
         string VarChar(IColumn column);
 
+        string TinyInt(IColumn column);
+
     }
 
 }
