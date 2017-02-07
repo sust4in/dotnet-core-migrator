@@ -41,6 +41,8 @@ namespace Ozziest.Generators
                     return SmallInt(column);
                 case "DECIMAL":
                     return Decimal(column);
+                case "FLOAT":
+                    return Float(column);
                 default:
                     throw new Exception("Column type not found: " + column.Type());
             }
@@ -191,6 +193,24 @@ namespace Ozziest.Generators
 
             return sql;
         }        
+
+        public string Float(IColumn column)
+        {
+            string sql = "`{0}` FLOAT({1}, {2})";
+            sql = string.Format(sql, column.Name(), column.Length(), column.Decimal());
+
+            if (column.IsNullable() == false)
+            {
+                sql += " NOT NULL";
+            }
+
+            if (column.IsUnique())
+            {
+                sql += " UNIQUE";
+            }
+
+            return sql;
+        }          
 
     }
 

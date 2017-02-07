@@ -24,6 +24,8 @@ namespace Ozziest.Columns
         
         int Scale();
 
+        int Decimal();
+
         bool IsNullable();
 
         bool IsUnique();

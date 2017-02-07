@@ -11,6 +11,8 @@ namespace Ozziest.Columns
         protected int _precision;
         protected int _scale;
 
+        protected int _decimal;
+
         protected bool isPrimaryKey = false;
 
         protected bool isAutoIncrement = false;
@@ -70,6 +72,11 @@ namespace Ozziest.Columns
         public virtual int Scale()
         {
             return _scale;
+        }
+
+        public virtual int Decimal()
+        {
+            return _decimal;
         }
 
         public virtual bool IsNullable()
