@@ -6,23 +6,23 @@ using Xunit;
 
 namespace test.MySQL.Columns.Numeric
 {
-    public class FloatTest
+    public class DoubleTest
     {
 
         private MySQLGenerator generator = new MySQLGenerator();
 
         [Fact]
-        public void TestFloat()
+        public void TestDouble()
         {
-            IColumn column = new FloatColumn("my_float_field", 7, 4);
+            IColumn column = new DoubleColumn("my_double_field", 7, 4);
             column.NotNull();
-            Assert.Equal("`my_float_field` FLOAT(7, 4) NOT NULL", generator.ToSQL(column));
+            Assert.Equal("`my_double_field` DOUBLE(7, 4) NOT NULL", generator.ToSQL(column));
         }
 
         [Fact]
         public void TestExceptionAutoIncrement()
         {
-            IColumn column = new FloatColumn("my_float_field", 7, 4);
+            IColumn column = new DoubleColumn("my_double_field", 7, 4);
             Assert.Throws<Exception>(() => column.AutoIncrement());
         }        
 
