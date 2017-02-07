@@ -3,10 +3,10 @@ using System;
 namespace Ozziest.Columns.Numeric
 {
 
-    public class Bit : ColumnDecorator 
+    public class BitColumn : ColumnDecorator 
     {
 
-        public Bit(string name)
+        public BitColumn(string name)
         {
             _name = name;
             _length = 1;

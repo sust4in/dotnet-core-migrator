@@ -13,7 +13,7 @@ namespace test.MySQL.Columns.Numeric
         [Fact]
         public void TestInt()
         {
-            IColumn column = new Int("user_id");
+            IColumn column = new IntColumn("user_id");
             column.SetNotNull();
             column.SetAutoIncrement();
             Assert.Equal("`user_id` INT NOT NULL AUTO_INCREMENT", generator.ToSQL(column));

@@ -1,8 +1,8 @@
 ﻿namespace Ozziest.Columns.Numeric
 {
-    public class SmallInt:ColumnDecorator
+    public class SmallIntColumn:ColumnDecorator
     {
-        public SmallInt(string name,int length)
+        public SmallIntColumn(string name,int length)
         {
             _name = name;
             _length = length;

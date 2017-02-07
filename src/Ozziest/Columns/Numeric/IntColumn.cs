@@ -1,10 +1,10 @@
 namespace Ozziest.Columns.Numeric
 {
 
-    public class Int : ColumnDecorator 
+    public class IntColumn : ColumnDecorator 
     {
 
-        public Int(string name)
+        public IntColumn(string name)
         {
             _name = name;
             _type = "INT";

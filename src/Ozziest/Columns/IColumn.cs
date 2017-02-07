@@ -20,6 +20,10 @@ namespace Ozziest.Columns
 
         int Length();
 
+        int Precision();
+        
+        int Scale();
+
         bool IsNullable();
 
         bool IsUnique();

@@ -12,7 +12,7 @@ namespace test.MySQL.Columns.Numeric
         [Fact]
         public void TestTinyInt()
         {
-            IColumn column = new TinyInt("line_no");
+            IColumn column = new TinyIntColumn("line_no");
             column.SetNotNull();
             column.SetAutoIncrement();
             Assert.Equal("`line_no` TINYINT NOT NULL AUTO_INCREMENT", generator.ToSQL(column));

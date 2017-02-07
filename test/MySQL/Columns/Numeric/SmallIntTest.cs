@@ -12,7 +12,7 @@ namespace test.MySQL.Columns.Numeric
         [Fact]
         public void TestSmallInt()
         {
-            IColumn column = new SmallInt("shoe_size", 2);
+            IColumn column = new SmallIntColumn("shoe_size", 2);
             column.SetNotNull();
             column.SetAutoIncrement();
             Assert.Equal("`shoe_size` SMALLINT(2) NOT NULL AUTO_INCREMENT", generator.ToSQL(column));

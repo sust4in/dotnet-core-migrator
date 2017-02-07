@@ -15,11 +15,11 @@ namespace test.MySQL.Columns.String
         public void TestVarChar()
         {
             // Simple varchar
-            IColumn column = new VarChar("users", 100);
+            IColumn column = new VarCharColumn("users", 100);
             Assert.Equal("`users` VARCHAR(100)", generator.ToSQL(column));
 
             // Advanced var char
-            column = new VarChar("nickname", 50);
+            column = new VarCharColumn("nickname", 50);
             column.SetNotNull();
             column.SetUnique();
             Assert.Equal("`nickname` VARCHAR(50) NOT NULL UNIQUE", generator.ToSQL(column));
@@ -28,7 +28,7 @@ namespace test.MySQL.Columns.String
         [Fact]
         public void TestVarCharExceptionAutoIncrement()
         {
-            IColumn column = new VarChar("users", 100);
+            IColumn column = new VarCharColumn("users", 100);
             Assert.Throws<Exception>(() => column.SetAutoIncrement());
         }
 

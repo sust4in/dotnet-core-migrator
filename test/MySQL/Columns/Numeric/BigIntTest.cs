@@ -13,7 +13,7 @@ namespace test.MySQL.Columns.Numeric
         [Fact]
         public void TestInt()
         {
-            IColumn column = new BigInt("foo", 20);
+            IColumn column = new BigIntColumn("foo", 20);
             column.SetNotNull();
             column.SetAutoIncrement();
             Assert.Equal("`foo` BIGINT(20) NOT NULL AUTO_INCREMENT", generator.ToSQL(column));

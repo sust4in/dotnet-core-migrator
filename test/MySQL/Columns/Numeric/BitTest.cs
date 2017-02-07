@@ -14,28 +14,28 @@ namespace test.MySQL.Columns.Numeric
         [Fact]
         public void TestBit()
         {
-            IColumn column = new Bit("is_online");
+            IColumn column = new BitColumn("is_online");
             Assert.Equal("`is_online` BIT(1)", generator.ToSQL(column));
         }
 
         [Fact]
         public void TestBitExceptionAutoIncrement()
         {
-            IColumn column = new Bit("is_online");
+            IColumn column = new BitColumn("is_online");
             Assert.Throws<Exception>(() => column.SetAutoIncrement());
         }
 
         [Fact]
         public void TestBitExceptionUnique()
         {
-            IColumn column = new Bit("is_online");
+            IColumn column = new BitColumn("is_online");
             Assert.Throws<Exception>(() => column.SetUnique());
         }
 
         [Fact]
         public void TestBitExceptionPrimaryKey()
         {
-            IColumn column = new Bit("is_online");
+            IColumn column = new BitColumn("is_online");
             Assert.Throws<Exception>(() => column.SetPrimaryKey());
         }
 

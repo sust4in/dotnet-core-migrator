@@ -39,6 +39,8 @@ namespace Ozziest.Generators
                     return TinyInt(column);
                 case "SMALLINT":
                     return SmallInt(column);
+                case "DECIMAL":
+                    return Decimal(column);
                 default:
                     throw new Exception("Column type not found: " + column.Type());
             }
@@ -166,6 +168,29 @@ namespace Ozziest.Generators
 
             return sb.ToString();
         }
+
+        public string Decimal(IColumn column)
+        {
+            string sql = "`{0}` DECIMAL({1}, {2})";
+            sql = string.Format(sql, column.Name(), column.Precision(), column.Scale());
+
+            if (column.IsNullable() == false)
+            {
+                sql += " NOT NULL";
+            }
+
+            if (column.IsUnique())
+            {
+                sql += " UNIQUE";
+            }
+
+            if (column.IsAutoIncrement())
+            {
+                sql += " AUTO_INCREMENT";
+            }
+
+            return sql;
+        }        
 
     }
 

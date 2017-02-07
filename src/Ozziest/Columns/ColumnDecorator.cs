@@ -8,6 +8,9 @@ namespace Ozziest.Columns
         protected string _type;
         protected int _length;
 
+        protected int _precision;
+        protected int _scale;
+
         protected bool isPrimaryKey = false;
 
         protected bool isAutoIncrement = false;
@@ -58,6 +61,15 @@ namespace Ozziest.Columns
         public virtual int Length()
         {
             return _length;
+        }
+
+        public virtual int Precision()
+        {
+            return _precision;
+        }
+        public virtual int Scale()
+        {
+            return _scale;
         }
 
         public virtual bool IsNullable()

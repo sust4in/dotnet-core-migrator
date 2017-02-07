@@ -1,10 +1,10 @@
 namespace Ozziest.Columns.Numeric
 {
 
-    public class BigInt : ColumnDecorator 
+    public class BigIntColumn : ColumnDecorator 
     {
 
-        public BigInt(string name, int length)
+        public BigIntColumn(string name, int length)
         {
             _name = name;
             _length = length;

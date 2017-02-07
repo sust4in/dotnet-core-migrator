@@ -3,10 +3,10 @@ using System;
 namespace Ozziest.Columns.String
 {
 
-    public class VarChar : ColumnDecorator 
+    public class VarCharColumn : ColumnDecorator 
     {
 
-        public VarChar(string name, int length)
+        public VarCharColumn(string name, int length)
         {
             _name = name;
             _length = length;
