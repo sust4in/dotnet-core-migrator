@@ -22,21 +22,21 @@ namespace test.MySQL.Columns.Numeric
         public void TestBitExceptionAutoIncrement()
         {
             IColumn column = new BitColumn("is_online");
-            Assert.Throws<Exception>(() => column.SetAutoIncrement());
+            Assert.Throws<Exception>(() => column.AutoIncrement());
         }
 
         [Fact]
         public void TestBitExceptionUnique()
         {
             IColumn column = new BitColumn("is_online");
-            Assert.Throws<Exception>(() => column.SetUnique());
+            Assert.Throws<Exception>(() => column.Unique());
         }
 
         [Fact]
         public void TestBitExceptionPrimaryKey()
         {
             IColumn column = new BitColumn("is_online");
-            Assert.Throws<Exception>(() => column.SetPrimaryKey());
+            Assert.Throws<Exception>(() => column.PrimaryKey());
         }
 
     }

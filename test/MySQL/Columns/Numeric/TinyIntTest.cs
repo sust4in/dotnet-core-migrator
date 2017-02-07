@@ -13,8 +13,8 @@ namespace test.MySQL.Columns.Numeric
         public void TestTinyInt()
         {
             IColumn column = new TinyIntColumn("line_no");
-            column.SetNotNull();
-            column.SetAutoIncrement();
+            column.NotNull();
+            column.AutoIncrement();
             Assert.Equal("`line_no` TINYINT NOT NULL AUTO_INCREMENT", generator.ToSQL(column));
         }
     }

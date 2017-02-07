@@ -14,18 +14,18 @@ public class MyMigration: Migration, IMigration {
         migrator.Table("users");
 
         migrator.AddColumn(new Int("id"))
-            .SetPrimaryKey()
-            .SetAutoIncrement()
-            .SetUnique()
-            .SetNotNull();        
+            .PrimaryKey()
+            .AutoIncrement()
+            .Unique()
+            .NotNull();        
 
         migrator.AddColumn(new VarChar("email", 100))
-            .SetUnique()
-            .SetNotNull();
+            .Unique()
+            .NotNull();
 
         migrator.AddColumn(new VarChar("nickname", 100))
-            .SetUnique()
-            .SetNotNull();
+            .Unique()
+            .NotNull();
 
         migrator.AddColumn(new VarChar("name", 100));
 

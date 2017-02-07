@@ -4,15 +4,15 @@ namespace Ozziest.Columns
     public interface IColumn 
     {
 
-        IColumn SetUnique();
+        IColumn Unique();
 
-        IColumn SetPrimaryKey();
+        IColumn PrimaryKey();
 
-        IColumn SetAutoIncrement();
+        IColumn AutoIncrement();
 
-        IColumn SetNotNull();
+        IColumn NotNull();
 
-        IColumn SetNull();
+        IColumn Nullable();
 
         string Name();
 

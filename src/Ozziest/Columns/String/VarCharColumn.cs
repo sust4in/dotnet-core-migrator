@@ -13,7 +13,7 @@ namespace Ozziest.Columns.String
             _type = "VARCHAR";
         }
 
-        public override IColumn SetAutoIncrement()
+        public override IColumn AutoIncrement()
         {
             throw new Exception("VarChar field can not be set as auto increment field.");
         }

@@ -15,7 +15,7 @@ namespace test.MySQL.Columns.Numeric
         public void TestDecimal()
         {
             IColumn column = new DecimalColumn("my_decimal_field", 5, 2);
-            column.SetNotNull();
+            column.NotNull();
             Assert.Equal("`my_decimal_field` DECIMAL(5, 2) NOT NULL", generator.ToSQL(column));
         }
 
@@ -23,7 +23,7 @@ namespace test.MySQL.Columns.Numeric
         public void TestExceptionAutoIncrement()
         {
             IColumn column = new DecimalColumn("my_decimal_field", 5, 2);
-            Assert.Throws<Exception>(() => column.SetAutoIncrement());
+            Assert.Throws<Exception>(() => column.AutoIncrement());
         }
 
     }

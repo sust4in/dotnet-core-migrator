@@ -13,17 +13,17 @@ namespace Ozziest.Columns.Numeric
             _type = "BIT";
         }
 
-        public override IColumn SetUnique()
+        public override IColumn Unique()
         {
             throw new Exception("Bit field can not be set as unique.");
         }
 
-        public override IColumn SetPrimaryKey()
+        public override IColumn PrimaryKey()
         {
             throw new Exception("Bit field can not be set as primary key.");
         }
 
-        public override IColumn SetAutoIncrement()
+        public override IColumn AutoIncrement()
         {
             throw new Exception("Bit field can not be set as an auto increment field.");
         }

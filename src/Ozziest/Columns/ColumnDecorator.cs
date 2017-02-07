@@ -18,31 +18,31 @@ namespace Ozziest.Columns
         protected bool isUnique = false;
         protected bool isNullable = true;
 
-        public virtual IColumn SetUnique()
+        public virtual IColumn Unique()
         {
             isUnique = true;
             return this;
         }
 
-        public virtual IColumn SetNotNull()
+        public virtual IColumn NotNull()
         {
             isNullable = false;
             return this;
         }
 
-        public virtual IColumn SetNull()
+        public virtual IColumn Nullable()
         {
             isNullable = true;
             return this;
         }
 
-        public virtual IColumn SetPrimaryKey()
+        public virtual IColumn PrimaryKey()
         {
             isPrimaryKey = true;
             return this;
         }
 
-        public virtual IColumn SetAutoIncrement()
+        public virtual IColumn AutoIncrement()
         {
             isAutoIncrement = true;
             return this;

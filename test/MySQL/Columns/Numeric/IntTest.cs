@@ -14,8 +14,8 @@ namespace test.MySQL.Columns.Numeric
         public void TestInt()
         {
             IColumn column = new IntColumn("user_id");
-            column.SetNotNull();
-            column.SetAutoIncrement();
+            column.NotNull();
+            column.AutoIncrement();
             Assert.Equal("`user_id` INT NOT NULL AUTO_INCREMENT", generator.ToSQL(column));
         }
 

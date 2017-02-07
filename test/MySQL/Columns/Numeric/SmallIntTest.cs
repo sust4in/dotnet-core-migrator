@@ -13,8 +13,8 @@ namespace test.MySQL.Columns.Numeric
         public void TestSmallInt()
         {
             IColumn column = new SmallIntColumn("shoe_size", 2);
-            column.SetNotNull();
-            column.SetAutoIncrement();
+            column.NotNull();
+            column.AutoIncrement();
             Assert.Equal("`shoe_size` SMALLINT(2) NOT NULL AUTO_INCREMENT", generator.ToSQL(column));
         }
     }

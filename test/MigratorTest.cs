@@ -36,8 +36,8 @@ namespace Ozziest.UnitTests
             migrator.Table("users");
  
             IColumn column = migrator.AddColumn(new VarCharColumn("email", 100))
-                .SetUnique()
-                .SetNotNull();
+                .Unique()
+                .NotNull();
 
             Assert.Equal(column.Name(), "email");
             Assert.Equal(column.Length(), 100);
@@ -61,7 +61,7 @@ namespace Ozziest.UnitTests
         public void TestAutoIncrementException()
         {
             IColumn column = migrator.AddColumn(new VarCharColumn("email", 100));
-            Assert.Throws<Exception>(() => column.SetAutoIncrement());
+            Assert.Throws<Exception>(() => column.AutoIncrement());
         }
         
     }

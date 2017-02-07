@@ -14,7 +14,7 @@ namespace Ozziest.Columns.Numeric
             _type = "DECIMAL";
         }
 
-        public override IColumn SetAutoIncrement()
+        public override IColumn AutoIncrement()
         {
             throw new Exception("Decimal field can not be set as an auto increment field.");
         }        

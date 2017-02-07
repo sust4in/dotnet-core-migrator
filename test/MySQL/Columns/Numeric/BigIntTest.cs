@@ -14,8 +14,8 @@ namespace test.MySQL.Columns.Numeric
         public void TestInt()
         {
             IColumn column = new BigIntColumn("foo", 20);
-            column.SetNotNull();
-            column.SetAutoIncrement();
+            column.NotNull();
+            column.AutoIncrement();
             Assert.Equal("`foo` BIGINT(20) NOT NULL AUTO_INCREMENT", generator.ToSQL(column));
         }
 
