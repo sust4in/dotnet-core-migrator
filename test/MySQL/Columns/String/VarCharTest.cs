@@ -16,13 +16,13 @@ namespace test.MySQL.Columns.String
         {
             // Simple varchar
             IColumn column = new VarChar("users", 100);
-            Assert.Equal("`users` VARCHAR(100)", generator.VarChar(column));
+            Assert.Equal("`users` VARCHAR(100)", generator.ToSQL(column));
 
             // Advanced var char
             column = new VarChar("nickname", 50);
             column.SetNotNull();
             column.SetUnique();
-            Assert.Equal("`nickname` VARCHAR(50) NOT NULL UNIQUE", generator.VarChar(column));
+            Assert.Equal("`nickname` VARCHAR(50) NOT NULL UNIQUE", generator.ToSQL(column));
         }
 
         [Fact]

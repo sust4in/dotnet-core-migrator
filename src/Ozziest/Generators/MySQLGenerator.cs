@@ -31,6 +31,10 @@ namespace Ozziest.Generators
                     return VarChar(column);
                 case "INT":
                     return Int(column);
+                case "BIT":
+                    return Bit(column);
+                case "BIGINT":
+                    return BigInt(column);
                 case "TINYINT":
                     return TinyInt(column);
                 case "SMALLINT":
@@ -62,6 +66,29 @@ namespace Ozziest.Generators
 
             return sql;
         }
+
+        public string BigInt(IColumn column)
+        {
+            string sql = "`{0}` BIGINT({1})";
+            sql = string.Format(sql, column.Name(), column.Length());
+
+            if (column.IsNullable() == false)
+            {
+                sql += " NOT NULL";
+            }
+
+            if (column.IsUnique())
+            {
+                sql += " UNIQUE";
+            }
+
+            if (column.IsAutoIncrement())
+            {
+                sql += " AUTO_INCREMENT";
+            }
+
+            return sql;
+        }        
 
         public string Bit(IColumn column)
         {
@@ -97,7 +124,7 @@ namespace Ozziest.Generators
         public string TinyInt(IColumn column)
         {
             sb = new StringBuilder();
-            sb.AppendFormat("`{0}` TINYINT({1})", column.Name(), column.Length());
+            sb.AppendFormat("`{0}` TINYINT", column.Name());
 
             if (column.IsNullable() == false)
             {

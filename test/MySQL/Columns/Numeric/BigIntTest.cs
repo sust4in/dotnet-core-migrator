@@ -5,7 +5,7 @@ using Xunit;
 
 namespace test.MySQL.Columns.Numeric
 {
-    public class IntTest
+    public class BigIntTest
     {
 
         private MySQLGenerator generator = new MySQLGenerator();
@@ -13,10 +13,10 @@ namespace test.MySQL.Columns.Numeric
         [Fact]
         public void TestInt()
         {
-            IColumn column = new Int("user_id");
+            IColumn column = new BigInt("foo", 20);
             column.SetNotNull();
             column.SetAutoIncrement();
-            Assert.Equal("`user_id` INT NOT NULL AUTO_INCREMENT", generator.ToSQL(column));
+            Assert.Equal("`foo` BIGINT(20) NOT NULL AUTO_INCREMENT", generator.ToSQL(column));
         }
 
     }

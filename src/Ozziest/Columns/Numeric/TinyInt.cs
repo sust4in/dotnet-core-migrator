@@ -2,10 +2,9 @@
 {
     public class TinyInt : ColumnDecorator
     {
-        public TinyInt(string name, int length)
+        public TinyInt(string name)
         {
             _name = name;
-            _length = length;
             _type = "TINYINT";
         }
     }
