@@ -1,12 +1,9 @@
 ﻿using Ozziest.Columns;
+using Ozziest.Columns.Numeric;
 using Ozziest.Generators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
-namespace test.MySQL.Columns
+namespace test.MySQL.Columns.Numeric
 {
     public class TinyIntTest
     {

@@ -1,12 +1,10 @@
 ﻿using Ozziest.Columns;
+using Ozziest.Columns.String;
 using Ozziest.Generators;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
-namespace test.MySQL.Columns
+namespace test.MySQL.Columns.String
 {
     public class VarCharTest
     {

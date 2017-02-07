@@ -1,6 +1,6 @@
 using System;
 
-namespace Ozziest.Columns 
+namespace Ozziest.Columns.String
 {
 
     public class VarChar : ColumnDecorator 

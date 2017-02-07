@@ -1,6 +1,6 @@
 using System;
 
-namespace Ozziest.Columns 
+namespace Ozziest.Columns.Numeric
 {
 
     public class Bit : ColumnDecorator 

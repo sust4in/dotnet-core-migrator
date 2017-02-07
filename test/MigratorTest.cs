@@ -1,5 +1,7 @@
 using System;
 using Ozziest.Columns;
+using Ozziest.Columns.Numeric;
+using Ozziest.Columns.String;
 using Ozziest.UnitTests.Mocks;
 using Xunit;
 
