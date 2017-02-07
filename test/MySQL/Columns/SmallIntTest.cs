@@ -18,7 +18,7 @@ namespace test.MySQL.Columns
             IColumn column = new Int("shoe_size");
             column.SetNotNull();
             column.SetAutoIncrement();
-            Assert.Equal("`shoe_size` SMALLINT NOT NULL AUTO_INCREMENT", generator.SmallInt(column));
+            Assert.Equal("`shoe_size` SMALLINT(0) NOT NULL AUTO_INCREMENT", generator.SmallInt(column));
         }
     }
 }

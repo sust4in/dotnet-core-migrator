@@ -18,7 +18,7 @@ namespace test.MySQL.Columns
             IColumn column = new Int("line_no");
             column.SetNotNull();
             column.SetAutoIncrement();
-            Assert.Equal("`line_no` TINYINT NOT NULL AUTO_INCREMENT", generator.TinyInt(column));
+            Assert.Equal("`line_no` TINYINT(0) NOT NULL AUTO_INCREMENT", generator.TinyInt(column));
         }
     }
 }
