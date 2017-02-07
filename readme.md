@@ -2,6 +2,10 @@
 
 Because we can do it!
 
+### WARNING!
+
+**This package is under development. Do not use it on production!**
+
 ### Usage 
 
 First, you should write a migration;
