@@ -45,6 +45,8 @@ namespace Ozziest.Generators
                     return Float(column);
                 case "DOUBLE":
                     return Double(column);
+                case "DATE":
+                    return Date(column);
                 default:
                     throw new Exception("Column type not found: " + column.Type());
             }
@@ -94,7 +96,7 @@ namespace Ozziest.Generators
             }
 
             return sql;
-        }        
+        }
 
         public string Bit(IColumn column)
         {
@@ -194,7 +196,7 @@ namespace Ozziest.Generators
             }
 
             return sql;
-        }        
+        }
 
         public string Float(IColumn column)
         {
@@ -230,6 +232,24 @@ namespace Ozziest.Generators
             }
 
             return sql;
+        }
+
+        public string Date(IColumn column)
+        {
+            sb = new StringBuilder();
+            sb.AppendFormat("`{0}` DATE", column.Name());
+
+            if (column.IsNullable() == false)
+            {
+                sb.Append(" NOT NULL");
+            }
+
+            if (column.IsUnique())
+            {
+                sb.Append(" UNIQUE");
+            }
+
+            return sb.ToString();
         }
 
     }
