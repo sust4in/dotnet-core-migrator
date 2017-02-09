@@ -237,7 +237,15 @@ namespace Ozziest.Generators
         public string Date(IColumn column)
         {
             sb = new StringBuilder();
-            sb.AppendFormat("`{0}` DATE", column.Name());
+
+            if (column.Length() > -1)
+            {
+                sb.AppendFormat("`{0}` DATE({1})", column.Name(), column.Length());
+            }
+            else
+            {
+                sb.AppendFormat("`{0}` DATE", column.Name());
+            }
 
             if (column.IsNullable() == false)
             {

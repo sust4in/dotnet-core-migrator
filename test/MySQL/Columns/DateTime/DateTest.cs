@@ -16,10 +16,10 @@ namespace test.MySQL.Columns.DateTime
         [Fact]
         public void TestDate()
         {
-            IColumn column = new Date("created_at");
-            column.NotNull();
+            IColumn column = new Date("created_at", 4);
             column.Unique();
-            Assert.Equal("`created_at` DATE NOT NULL UNIQUE", generator.ToSQL(column));
+            column.NotNull();
+            Assert.Equal("`created_at` DATE(4) NOT NULL UNIQUE", generator.ToSQL(column));
         }
     }
 }
