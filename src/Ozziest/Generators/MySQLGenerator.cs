@@ -49,6 +49,8 @@ namespace Ozziest.Generators
                     return Date(column);
                 case "TIMESTAMP":
                     return Timestamp(column);
+                case "TIME":
+                    return Time(column);
                 default:
                     throw new Exception("Column type not found: " + column.Type());
             }
@@ -273,6 +275,33 @@ namespace Ozziest.Generators
             else
             {
                 sb.AppendFormat("`{0}` TIMESTAMP", column.Name());
+            }
+
+            if (column.IsNullable() == false)
+            {
+                sb.Append(" NOT NULL");
+            }
+
+            if (column.IsUnique())
+            {
+                sb.Append(" UNIQUE");
+            }
+
+            return sb.ToString();
+
+        }
+
+        public string Time(IColumn column)
+        {
+            sb = new StringBuilder();
+
+            if (column.Length() > -1)
+            {
+                sb.AppendFormat("`{0}` TIME({1})", column.Name(), column.Length());
+            }
+            else
+            {
+                sb.AppendFormat("`{0}` TIME", column.Name());
             }
 
             if (column.IsNullable() == false)

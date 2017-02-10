@@ -2,23 +2,25 @@
 
 namespace Ozziest.Columns.DateTime
 {
-    public class Timestamp : ColumnDecorator
+    public class Time : ColumnDecorator
     {
-        public Timestamp(string name, int? length)
+
+        public Time(string name, int? length)
         {
             if (length != null && length > 6)
             {
-                throw new Exception("TIMESTAMP field optional value must be in range 0 to 6.");
+                throw new Exception("TIME field optional value must be in range 0 to 6.");
             }
 
             _name = name;
             _length = length == null ? -1 : (int)length;
-            _type = "TIMESTAMP";
+            _type = "TIME";
         }
 
         public override IColumn AutoIncrement()
         {
-            throw new Exception("DATE field cannot be set as auto increment field.");
+            throw new Exception("TIME field cannot be set as auto increment field.");
         }
+
     }
 }
