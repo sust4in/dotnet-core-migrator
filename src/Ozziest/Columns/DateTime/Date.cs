@@ -20,7 +20,12 @@ namespace Ozziest.Columns.DateTime
 
         public override IColumn AutoIncrement()
         {
-            throw new Exception("DATE field can not be set as auto increment field.");
+            throw new Exception("DATE field cannot be set as auto increment field.");
+        }
+
+        public override IColumn PrimaryKey()
+        {
+            throw new Exception("DATE field cannot be set as primary key.");
         }
 
     }
