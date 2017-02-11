@@ -9,17 +9,17 @@ using Xunit;
 
 namespace test.MySQL.Columns.DateTime
 {
-    public class DateTest
+    public class TimeTest
     {
         private MySQLGenerator generator = new MySQLGenerator();
 
         [Fact]
         public void TestDate()
         {
-            IColumn column = new Date("created_at", 4);
+            IColumn column = new Time("times", 2);
             column.Unique();
             column.NotNull();
-            Assert.Equal("`created_at` DATE(4) NOT NULL UNIQUE", generator.ToSQL(column));
+            Assert.Equal("`times` TIME(2) NOT NULL UNIQUE", generator.ToSQL(column));
         }
     }
 }

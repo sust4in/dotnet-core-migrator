@@ -47,6 +47,10 @@ namespace Ozziest.Generators
                     return Double(column);
                 case "DATE":
                     return Date(column);
+                case "TIMESTAMP":
+                    return Timestamp(column);
+                case "TIME":
+                    return Time(column);
                 default:
                     throw new Exception("Column type not found: " + column.Type());
             }
@@ -237,7 +241,15 @@ namespace Ozziest.Generators
         public string Date(IColumn column)
         {
             sb = new StringBuilder();
-            sb.AppendFormat("`{0}` DATE", column.Name());
+
+            if (column.Length() > -1)
+            {
+                sb.AppendFormat("`{0}` DATE({1})", column.Name(), column.Length());
+            }
+            else
+            {
+                sb.AppendFormat("`{0}` DATE", column.Name());
+            }
 
             if (column.IsNullable() == false)
             {
@@ -250,6 +262,60 @@ namespace Ozziest.Generators
             }
 
             return sb.ToString();
+        }
+
+        public string Timestamp(IColumn column)
+        {
+            sb = new StringBuilder();
+
+            if (column.Length()>-1)
+            {
+                sb.AppendFormat("`{0}` TIMESTAMP({1})", column.Name(), column.Length());
+            }
+            else
+            {
+                sb.AppendFormat("`{0}` TIMESTAMP", column.Name());
+            }
+
+            if (column.IsNullable() == false)
+            {
+                sb.Append(" NOT NULL");
+            }
+
+            if (column.IsUnique())
+            {
+                sb.Append(" UNIQUE");
+            }
+
+            return sb.ToString();
+
+        }
+
+        public string Time(IColumn column)
+        {
+            sb = new StringBuilder();
+
+            if (column.Length() > -1)
+            {
+                sb.AppendFormat("`{0}` TIME({1})", column.Name(), column.Length());
+            }
+            else
+            {
+                sb.AppendFormat("`{0}` TIME", column.Name());
+            }
+
+            if (column.IsNullable() == false)
+            {
+                sb.Append(" NOT NULL");
+            }
+
+            if (column.IsUnique())
+            {
+                sb.Append(" UNIQUE");
+            }
+
+            return sb.ToString();
+
         }
 
     }
