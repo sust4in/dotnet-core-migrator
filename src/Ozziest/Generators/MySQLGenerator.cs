@@ -51,6 +51,8 @@ namespace Ozziest.Generators
                     return Timestamp(column);
                 case "TIME":
                     return Time(column);
+                case "YEAR":
+                    return Year(column);
                 default:
                     throw new Exception("Column type not found: " + column.Type());
             }
@@ -318,6 +320,23 @@ namespace Ozziest.Generators
 
         }
 
+        public string Year(IColumn column)
+        {
+            sb = new StringBuilder();
+            sb.AppendFormat("`{0}` YEAR", column.Name());
+
+            if (column.IsNullable() == false)
+            {
+                sb.Append(" NOT NULL");
+            }
+
+            if (column.IsUnique())
+            {
+                sb.Append(" UNIQUE");
+            }
+
+            return sb.ToString();
+        }
     }
 
 }

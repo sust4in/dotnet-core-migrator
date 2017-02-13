@@ -19,6 +19,13 @@ namespace Ozziest.Generators
 
         string TinyInt(IColumn column);
 
+        string Date(IColumn column);
+
+        string Timestamp(IColumn column);
+
+        string Time(IColumn column);
+
+        string Year(IColumn column);
     }
 
 }
