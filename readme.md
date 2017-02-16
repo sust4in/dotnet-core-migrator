@@ -13,7 +13,7 @@ First, you should write a migration;
 ```csharp
 public class MyMigration: Migration, IMigration {
 
-    public void Execute()
+    public void Up()
     {
         migrator.Table("users");
 
@@ -35,6 +35,11 @@ public class MyMigration: Migration, IMigration {
 
         migrator.Create();
     }
+    
+    public void Down()
+    {
+        migrator.Table("users").Drop();
+    }    
 
 } 
 ```
