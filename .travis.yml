@@ -6,6 +6,7 @@ env:
 addons:  
   apt:
     packages:
+    - libstdc
     - curl
     - libunwind8
     - gettext
