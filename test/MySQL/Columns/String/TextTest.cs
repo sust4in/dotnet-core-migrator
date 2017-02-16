@@ -14,13 +14,8 @@ namespace test.MySQL.Columns.String
         [Fact]
         public void TestText()
         {
-        //Given
-        IColumn column = new TextColumn("description");
-        Assert.Equal("`description` TEXT", generator.ToSQL(column));
-
-        //When
-        
-        //Then
+            IColumn column = new TextColumn("description");
+            Assert.Equal("`description` TEXT", generator.ToSQL(column));
         }
 
         [Fact]
@@ -29,5 +24,6 @@ namespace test.MySQL.Columns.String
             IColumn column = new TextColumn("description");
             Assert.Throws<Exception>(() => column.AutoIncrement());
         }
+
     }
 }

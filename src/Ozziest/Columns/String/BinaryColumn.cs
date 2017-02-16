@@ -6,7 +6,8 @@ namespace Ozziest.Columns.String
     {
         public BinaryColumn(string name)
         {
-
+            _name = name;
+            _type = "BINARY";
         }
     }
 }

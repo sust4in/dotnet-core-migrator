@@ -6,7 +6,8 @@ namespace Ozziest.Columns.String
     {
         public BlobColumn(string name)
         {
-
+            _name = name;
+            _type = "BLOB";
         }
     }
 }

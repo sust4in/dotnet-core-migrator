@@ -29,6 +29,8 @@ namespace Ozziest.Generators
             {
                 case "VARCHAR":
                     return VarChar(column);
+                case "TEXT":
+                    return Text(column);
                 case "INT":
                     return Int(column);
                 case "BIT":
@@ -130,6 +132,19 @@ namespace Ozziest.Generators
             if (column.IsUnique())
             {
                 sql += " UNIQUE";
+            }
+
+            return sql;
+        }
+
+        public string Text(IColumn column)
+        {
+            string sql = "`{0}` TEXT";
+            sql = string.Format(sql, column.Name());
+
+            if (column.IsNullable() == false)
+            {
+                sql += " NOT NULL";
             }
 
             return sql;
