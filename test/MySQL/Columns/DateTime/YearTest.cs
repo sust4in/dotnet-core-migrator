@@ -1,6 +1,7 @@
 ﻿using Ozziest.Columns;
 using Ozziest.Columns.DateTime;
 using Ozziest.Generators;
+using Ozziest.Generators.MySQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace test.MySQL.Columns.DateTime
 {
     public class YearTest
     {
-        private MySQLGenerator generator = new MySQLGenerator();
+        private IFieldGenerator generator = new MySQLFieldGenerator();
 
         [Fact]
         public void TestDate()

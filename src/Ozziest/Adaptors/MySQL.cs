@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Ozziest.Generators;
+using Ozziest.Generators.MySQL;
 
 namespace Ozziest.Adaptors
 {
@@ -7,7 +8,8 @@ namespace Ozziest.Adaptors
     {
 
         private string _connectionString;
-        private IGenerator _generator = new MySQLGenerator();
+        private ITableGenerator _tableGenerator = new MySQLTableGenerator();
+        private IFieldGenerator _fieldGenerator = new MySQLFieldGenerator();
 
         public MySQLAdaptor(string connectionString)
         {
@@ -29,11 +31,16 @@ namespace Ozziest.Adaptors
             return new List<dynamic>();
         }
 
-        public IGenerator Generator()
+        public ITableGenerator TableGenerator()
         {
-            return _generator;
+            return _tableGenerator;
+        }
+
+        public IFieldGenerator FieldGenerator()
+        {
+            return _fieldGenerator;
         }
 
     }
-    
+
 }

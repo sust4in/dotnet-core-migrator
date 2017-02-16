@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Ozziest.Adaptors;
 using Ozziest.Generators;
+using Ozziest.Generators.MySQL;
 
 namespace Ozziest.UnitTests.Mocks
 {
@@ -11,7 +12,8 @@ namespace Ozziest.UnitTests.Mocks
         private string _connectionString;
         private string lastSQL;
 
-        private IGenerator _generator = new MySQLGenerator();
+        private ITableGenerator _tableGenerator = new MySQLTableGenerator();
+        private IFieldGenerator _fieldGenerator = new MySQLFieldGenerator();
 
         public MockAdaptor(string connectionString)
         {
@@ -38,9 +40,14 @@ namespace Ozziest.UnitTests.Mocks
             return lastSQL;
         }
 
-        public IGenerator Generator()
+        public ITableGenerator TableGenerator()
         {
-            return _generator;
+            return _tableGenerator;
+        }
+
+        public IFieldGenerator FieldGenerator()
+        {
+            return _fieldGenerator;
         }
 
     }

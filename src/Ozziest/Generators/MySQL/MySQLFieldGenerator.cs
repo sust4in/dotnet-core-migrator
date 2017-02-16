@@ -1,27 +1,16 @@
-using Ozziest.Columns;
+﻿using Ozziest.Columns;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Ozziest.Generators
+namespace Ozziest.Generators.MySQL
 {
-
-    public class MySQLGenerator : IGenerator
+    public class MySQLFieldGenerator: IFieldGenerator
     {
 
         StringBuilder sb = null;
-
-        public string Create(string table, List<IColumn> columns)
-        {
-            string sql = "CREATE TABLE `{0}` ({1})";
-            string columnSQL = "";
-            foreach (IColumn column in columns)
-            {
-                columnSQL += " " + ToSQL(column) + ",";
-            }
-            columnSQL = columnSQL.Substring(0, columnSQL.Length - 1).Trim();
-            return string.Format(sql, table, columnSQL);
-        }
 
         public string ToSQL(IColumn column)
         {
@@ -285,7 +274,7 @@ namespace Ozziest.Generators
         {
             sb = new StringBuilder();
 
-            if (column.Length()>-1)
+            if (column.Length() > -1)
             {
                 sb.AppendFormat("`{0}` TIMESTAMP({1})", column.Name(), column.Length());
             }
@@ -352,6 +341,6 @@ namespace Ozziest.Generators
 
             return sb.ToString();
         }
-    }
 
+    }
 }

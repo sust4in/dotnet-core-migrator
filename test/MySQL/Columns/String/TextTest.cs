@@ -3,13 +3,14 @@ using Ozziest.Columns;
 using Ozziest.Columns.String;
 using Ozziest.Generators;
 using Xunit;
+using Ozziest.Generators.MySQL;
 
 namespace test.MySQL.Columns.String
 {
     public class TextTest
     {
-        
-        private MySQLGenerator generator = new MySQLGenerator();
+
+        private IFieldGenerator generator = new MySQLFieldGenerator();
 
         [Fact]
         public void TestText()

@@ -1,6 +1,7 @@
 ﻿using Ozziest.Columns;
 using Ozziest.Columns.Numeric;
 using Ozziest.Generators;
+using Ozziest.Generators.MySQL;
 using System;
 using Xunit;
 
@@ -9,7 +10,7 @@ namespace test.MySQL.Columns.Numeric
     public class BitTest
     {
 
-        private MySQLGenerator generator = new MySQLGenerator();
+        private IFieldGenerator generator = new MySQLFieldGenerator();
 
         [Fact]
         public void TestBit()

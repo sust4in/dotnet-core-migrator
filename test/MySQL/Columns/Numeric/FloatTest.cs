@@ -3,13 +3,14 @@ using Ozziest.Columns;
 using Ozziest.Columns.Numeric;
 using Ozziest.Generators;
 using Xunit;
+using Ozziest.Generators.MySQL;
 
 namespace test.MySQL.Columns.Numeric
 {
     public class FloatTest
     {
 
-        private MySQLGenerator generator = new MySQLGenerator();
+        private IFieldGenerator generator = new MySQLFieldGenerator();
 
         [Fact]
         public void TestFloat()

@@ -1,6 +1,7 @@
 ﻿using Ozziest.Columns;
 using Ozziest.Columns.Numeric;
 using Ozziest.Generators;
+using Ozziest.Generators.MySQL;
 using Xunit;
 
 namespace test.MySQL.Columns.Numeric
@@ -8,7 +9,7 @@ namespace test.MySQL.Columns.Numeric
     public class BigIntTest
     {
 
-        private MySQLGenerator generator = new MySQLGenerator();
+        private IFieldGenerator generator = new MySQLFieldGenerator();
 
         [Fact]
         public void TestInt()

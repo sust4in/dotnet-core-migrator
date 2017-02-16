@@ -12,8 +12,10 @@ namespace Ozziest.Adaptors
 
         List<dynamic> Get(string sql);
 
-        IGenerator Generator();
+        ITableGenerator TableGenerator();
+
+        IFieldGenerator FieldGenerator();
 
     }
-    
+
 }

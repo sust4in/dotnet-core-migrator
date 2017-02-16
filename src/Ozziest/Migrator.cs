@@ -51,7 +51,7 @@ namespace Ozziest
 
         public void Create()
         {
-            string sql = adaptor.Generator().Create(_table, columns);
+            string sql = adaptor.TableGenerator().Create(_table, columns);
             adaptor.Create(sql);
         }
 

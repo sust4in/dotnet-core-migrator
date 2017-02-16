@@ -1,13 +1,14 @@
 ﻿using Ozziest.Columns;
 using Ozziest.Columns.Numeric;
 using Ozziest.Generators;
+using Ozziest.Generators.MySQL;
 using Xunit;
 
 namespace test.MySQL.Columns.Numeric
 {
     public class SmallIntTest
     {
-        private MySQLGenerator generator = new MySQLGenerator();
+        private IFieldGenerator generator = new MySQLFieldGenerator();
 
         [Fact]
         public void TestSmallInt()

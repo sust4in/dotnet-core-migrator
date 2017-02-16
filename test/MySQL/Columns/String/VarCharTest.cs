@@ -1,6 +1,7 @@
 ﻿using Ozziest.Columns;
 using Ozziest.Columns.String;
 using Ozziest.Generators;
+using Ozziest.Generators.MySQL;
 using System;
 using Xunit;
 
@@ -9,7 +10,7 @@ namespace test.MySQL.Columns.String
     public class VarCharTest
     {
 
-        private MySQLGenerator generator = new MySQLGenerator();
+        private IFieldGenerator generator = new MySQLFieldGenerator();
 
         [Fact]
         public void TestVarChar()
