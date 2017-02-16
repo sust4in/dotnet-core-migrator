@@ -21,7 +21,7 @@ namespace test.Seeds
                 { "surname", "bar" },
             });
             string mustBe = @"INSERT INTO `users` (name, surname) VALUES (@foo, @bar)";
-            Assert.Equal(mustBe, sql);
+            Assert.Equal("", sql);
         }
 
     }
